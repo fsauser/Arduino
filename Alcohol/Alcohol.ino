@@ -23,11 +23,16 @@
 #include <BLEServer.h>
 #include <BLEUtils.h>
 #include <BLE2902.h>
+#include <string.h>
 #include <NeoPixelBus.h>
 #include "DFRobot_Alcohol.h"
 
+// BLE'name of the board
+#define ESP32_NAME "ESP32-M2"
+// Timer delay [us]
+#define TIMER_DELAY 2000000 //2s
 // SET/RESET simulation mode
-#define SIMULATION 0
+#define SIMULATION 1
 
 // const & variables pour la LED RGB
 const uint16_t PixelCount = 1;
@@ -39,6 +44,8 @@ RgbColor green(0, colorSaturation, 0);
 RgbColor blue(0, 0, colorSaturation);
 RgbColor white(colorSaturation);
 RgbColor black(0);
+
+float alcoholConcentration=0.0;
 
 // const & variables pour le capteur
 #define COLLECT_NUMBER   5
@@ -120,7 +127,7 @@ void setup()
   // Init Timer1
   myTimer = timerBegin(0, 80, true);
   timerAttachInterrupt(myTimer, &onTimer, true);
-  timerAlarmWrite(myTimer, 1000000, true);
+  timerAlarmWrite(myTimer, TIMER_DELAY, true);
   timerAlarmEnable(myTimer);
           
   // Init de la LED RGB
@@ -128,7 +135,7 @@ void setup()
   strip.Show();
 
   // Create the BLE Device
-  BLEDevice::init("ESP32-M1");
+  BLEDevice::init(ESP32_NAME);
   // Create the BLE Server
   pServer = BLEDevice::createServer();
   pServer->setCallbacks(new MyServerCallbacks());
@@ -139,8 +146,8 @@ void setup()
                       CHARACTERISTIC_UUID,
                       BLECharacteristic::PROPERTY_READ   |
                       BLECharacteristic::PROPERTY_WRITE  |
-                      BLECharacteristic::PROPERTY_NOTIFY |
-                      BLECharacteristic::PROPERTY_INDICATE
+                      BLECharacteristic::PROPERTY_NOTIFY //|
+//                      BLECharacteristic::PROPERTY_INDICATE
                     );
 
   // https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.descriptor.gatt.client_characteristic_configuration.xml
@@ -163,7 +170,8 @@ void loop()
   // notify changed value
   if (deviceConnected && notifyValue) 
   {
-    pCharacteristic->setValue((uint8_t*)&value, 4);
+    std::string data = std::to_string(alcoholConcentration);
+    pCharacteristic->setValue(data);
     pCharacteristic->notify();
     delay(10); // bluetooth stack will go into congestion, if too many packets are sent, in 6 hours test i was able to go as low as 3ms
     notifyValue = false;
@@ -189,8 +197,8 @@ void loop()
     * Smooth data collection
     * COLLECT_NUMBER                 The collection range is 1-100
     */
-#if SIMULATION == 1
-    float alcoholConcentration = Alcohol.readAlcoholData(COLLECT_NUMBER);
+#if SIMULATION == 0
+    alcoholConcentration = Alcohol.readAlcoholData(COLLECT_NUMBER);
     if(alcoholConcentration == ERROR)
     {
       Serial.println("Please check the connection !");
@@ -201,11 +209,10 @@ void loop()
       Serial.println(" PPM.");
     }
 #else
-    static float alcoholConcentration=0.0;
     alcoholConcentration+=0.1;
     if(alcoholConcentration>10.0) alcoholConcentration=0;
 #endif
-    value=(uint32_t)alcoholConcentration*100;
+    value=(uint32_t)(alcoholConcentration*100.0);
     notifyValue = true;
   }
 }
