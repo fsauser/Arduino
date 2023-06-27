@@ -1,33 +1,4 @@
-/*
-  Read the MLX90640 temperature readings as quickly as possible
-  By: Nathan Seidle
-  SparkFun Electronics
-  Date: May 22nd, 2018
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun! https://www.sparkfun.com/products/14769
-
-  This example reads the MLX90640 and outputs 768 temperature values as fast as possible. 
-  Use this example in conjunction with our Processing visualizer.
-
-  We use the Teensy 3.5 for this example. The MLX90640 requires some
-  hefty calculations and larger arrays. You will need a microcontroller with 20,000
-  bytes or more of RAM.
-
-  This relies on the driver written by Melexis and can be found at:
-  https://github.com/melexis/mlx90640-library
-
-  Hardware Connections:
-  Connect the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  to the Qwiic board
-  Connect the male pins to the Teensy. The pinouts can be found here: https://www.pjrc.com/teensy/pinout.html
-  Open the serial monitor at 115200 baud to see the output
-*/
-
 #include <Wire.h>
-
 #include "MLX90640_API.h"
 #include "MLX90640_I2C_Driver.h"
 
@@ -39,7 +10,6 @@ float mlx90640To[768];
 paramsMLX90640 mlx90640;
 
 const byte calcStart = 33; //Pin that goes high/low when calculations are complete
-//This makes the timing visible on the logic analyzer
 
 void setup()
 {
@@ -52,7 +22,6 @@ void setup()
   Serial.begin(115200); //Fast serial as possible
 
   while (!Serial); //Wait for user to open terminal
-  //Serial.println("MLX90640 IR Array Example");
 
   if (isConnected() == false)
   {
@@ -70,8 +39,6 @@ void setup()
   status = MLX90640_ExtractParameters(eeMLX90640, &mlx90640);
   if (status != 0)
     Serial.println("Parameter extraction failed");
-
-  //Once params are extracted, we can release eeMLX90640 array
 
   //Set refresh rate
   //A rate of 0.5Hz takes 4Sec per reading because we have to read two frames to get complete picture
@@ -120,6 +87,7 @@ void loop()
     Serial.print(",");
   }
   Serial.println("");
+
   long stopPrintTime = millis();
 
   Serial.print("Read rate: ");
