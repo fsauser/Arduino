@@ -39,6 +39,26 @@ https://espressif.github.io/arduino-esp32/package_esp32_index.json
   <p style="text-align: center;">Figure 3: Menu: File --> Preferences"</p>
 </figure>
 
+Vous pouvez à présent charger les outils pour la carte ESP32-S3.
+Pour cela, il faut aller sur le "Board Manager" et sélectioner "esp32 by Espressif Systems" (voir Figure 4).
+
+<figure>
+  <img src="img\board.jpg" alt="Board Manager" style="display: block; margin: 0 auto" width="80%" height="80%"/>
+  <p style="text-align: center;">Figure 4: Board Manager"</p>
+</figure>
+
+Pour tester votre Installation, vous pouvez ouvrir le un "Sketch" d'exemple: 
+
+File --> Exemples --> ESP32 --> GPIO --> BlinkRGB
+
+Brancher la carte et sélectionner la carte "ESP32S3 Dev Module" (voir Figure 5)et le port de connexion.
+En suite vous pouvez compiler et télécharger le code sur la carte.
+
+<figure>
+  <img src="img\Select.jpg" alt="Select Other Board and Port" style="display: block; margin: 0 auto" width="80%" height="80%"/>
+  <p style="text-align: center;">Figure 5: Select Other Board and Port"</p>
+</figure>
+
 ### Liens utiles: 
 
 - [Arduino core for the ESP32, ESP32-S2, ESP32-S3 and ESP32-C3](https://github.com/espressif/arduino-esp32)
