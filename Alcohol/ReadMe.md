@@ -6,8 +6,8 @@
 Pour utiliser le programme il faut suivre les points suivants:
 
 - Installer la librairie "DFRobot_Alcohol"
-- Installer la librairie "NeoPixelBus_by_Makuna"
-- Modifier le ficher "libraries\DFRobot_Alcohol\DFRobot_Alcohol.cpp" et remplacer la fonction par le code suivant :
+- Installer la librairie "NeoPixelBus"
+- Modifier le ficher "libraries\DFRobot_Alcohol\DFRobot_Alcohol.cpp" et remplacer la fonction "DFRobot_Alcohol_I2C::begin()" par le code suivant :
 
 ```console
 bool DFRobot_Alcohol_I2C::begin()

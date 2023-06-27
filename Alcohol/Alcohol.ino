@@ -1,9 +1,4 @@
 /*
-    Video: https://www.youtube.com/watch?v=oCMOYS71NIU
-    Based on Neil Kolban example for IDF: https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLE%20Tests/SampleNotify.cpp
-    Ported to Arduino ESP32 by Evandro Copercini
-    updated by chegewara
-
    Create a BLE server that, once we receive a connection, will send periodic notifications.
    The service advertises itself as: 4fafc201-1fb5-459e-8fcc-c5c9c331914b
    And has a characteristic of: beb5483e-36e1-4688-b7f5-ea07361b26a8
