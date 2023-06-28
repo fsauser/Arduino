@@ -43,7 +43,7 @@ Vous pouvez à présent charger les outils pour la carte ESP32-S3.
 Pour cela, il faut aller sur le "Board Manager" et sélectioner "esp32 by Espressif Systems" (voir Figure 4).
 
 <figure>
-  <img src="img\board.jpg" alt="Board Manager" style="display: block; margin: 0 auto" width="80%" height="80%"/>
+  <img src="img\board.jpg" alt="Board Manager" style="display: block; margin: 0 auto" width="50%" height="50%"/>
   <p style="text-align: center;">Figure 4: Board Manager"</p>
 </figure>
 
@@ -51,7 +51,8 @@ Pour tester votre Installation, vous pouvez ouvrir le un "Sketch" d'exemple:
 
 File --> Exemples --> ESP32 --> GPIO --> BlinkRGB
 
-Brancher la carte et sélectionner la carte "ESP32S3 Dev Module" (voir Figure 5)et le port de connexion.
+Brancher la carte (connecteur "USP Port" de la carte) à votre PC et sélectionner la carte "ESP32S3 Dev Module" (voir Figure 5)et le port de connexion.
+
 En suite vous pouvez compiler et télécharger le code sur la carte.
 
 <figure>
@@ -63,5 +64,11 @@ En suite vous pouvez compiler et télécharger le code sur la carte.
 
 - [Arduino core for the ESP32, ESP32-S2, ESP32-S3 and ESP32-C3](https://github.com/espressif/arduino-esp32)
 - [Supported Peripherals](https://docs.espressif.com/projects/arduino-esp32/en/latest/libraries.html#supported-peripherals) 
+
+Pour les démonstrations, il faut également avoir Python insatllé sur votre PC.
+Si cela n'est pas déjà le cas, vous pouvez télécharger la dernière version sur le ce site suivant : 
+[Python Releases for Windows](https://www.python.org/downloads/windows/)
+
+Pour écrire les scripts Python il est possible d'utiliser l'outil IDLE (compris dans l'installation) ou [Visual Studio Code](https://code.visualstudio.com/).
 
 </font>
