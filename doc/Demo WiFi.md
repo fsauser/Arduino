@@ -1,31 +1,44 @@
 <font size=1>
 
-Installation des outils
+Démo WiFi
 ===================
 
-### 27-06-2023: v1.1
+### 27-06-2023: v1.2
 ---------------------
 
-# Carte ESP32S3 - partie "matériel"
-La carte utilisée pour les démonstrations est l'**ESP32S3-DevKitC1**.
+# Connexion du capteur à la carte
+La petite caméra IR (32x24) communique avec la carte '**ESP32S3-DevKitC1** via le protocole I2C.
 
-<figure>
-  <img src="img\ESP32S3 - DevKitC1.jpg" alt="Carte ESP32-S3-DevKitC-1" style="display: block; margin: 0 auto" width="80%" height="80%"/>
-  <p style="text-align: center;">Figure 1: Carte "ESP32-S3-DevKitC-1"</p>
-</figure>
+La connexion entre la carte (voir Figure 1) et le capteur (voir Figure 2) est :
+
+| Capteur IR         | ESP32S3-DevKitC1  |
+| ------------------ | ----------------- |
+| `VCC (fil rouge)`  | `3V3`             |
+| `GND (fil noir)`   | `GND`             |
+| `SDA (fil blanc)`  | `pin 17`          |
+| `SCL (fil jaune)`  | `pin 18`          |
+
 
 <figure>
   <img src="img\Pin-Layout.jpg" alt="Pin-Layout <ESP32-S3-DevKitC-1>" style="display: block; margin: 0 auto" width="80%" height="80%"/>
-  <p style="text-align: center;">Figure 2: Pin-Layout "ESP32-S3-DevKitC-1"</p>
+  <p style="text-align: center;">Figure 1: Pin-Layout "ESP32-S3-DevKitC-1"</p>
 </figure>
-### Liens utiles: 
 
-- [Get Started : ESP32-S3-DevKitC-1 v1.1](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/hw-reference/esp32s3/user-guide-devkitc-1.html)
-- [Datasheet du SoC ESP32S3](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf) 
+<figure>
+  <img src="img\IR.jpg" alt="Carte caméra thermique" style="display: block; margin: 0 auto" width="80%" height="80%"/>
+  <p style="text-align: center;">Figure 2: Carte caméra thermique"</p>
+</figure>
 
-# Carte ESP32S3 - partie "logiciel"
-Il est possible d'utiliser un SDK (toolchain) avec l'OS "FreeRTOS" mais, dans notre cas, nous allons plutôt utiliser l'outil "Arduino-ESP32".
-Pour cela, il faut suivre les étapes suivantes:
+### Lien utile: 
+
+- [Datasheet de la caméra thermique](https://www.farnell.com/datasheets/3759206.pdf)
+
+
+# Code source MLX1
+La première démo avec ce capteur permet de récupérer l'image IR et de l'envoyer (via RS232) vers un PC.
+Un script python va récupérer les données sur le port de communication et les afficher.
+Pour cela il faut :
+- Télécharger le code source zippé [lien]()
 - Télécharger et installer l'[Arduino IDE 2.1.0](https://www.arduino.cc/en/software), la version "Windows Win 10 and newer, 64 bits"
 - Lancer IDE Arduino et aller dans le menu : File --> Preferences [onglet "Setting"] (voir Figure 3)
 - Entrer le répertoire de travail (dans mon cas : c:\Users\florian.sauser\Documents\Arduino)
