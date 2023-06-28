@@ -1,0 +1,15 @@
+
+
+https://github.com/fsauser/Arduino/blob/master/doc/Installation.md
+
+https://github.com/fsauser/Arduino/blob/master/doc/Demo_WiFi.md
+
+Pour le driver du port USB de la carte il faut télécharger :
+https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads
+
+Et mettre à jour le driver dans le gestionnaire de périphérique
+
+Pour le script Python (pip install pyserial)
+
+
+https://github.com/fsauser/Arduino/blob/master/doc/Demo_BLE.md

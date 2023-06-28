@@ -23,11 +23,11 @@
 #include "DFRobot_Alcohol.h"
 
 // BLE'name of the board
-#define ESP32_NAME "ESP32-M2"
+#define ESP32_NAME "ESP32-Mx"
 // Timer delay [us]
 #define TIMER_DELAY 2000000 //2s
 // SET/RESET simulation mode
-#define SIMULATION 1
+#define SIMULATION 0
 
 // const & variables pour la LED RGB
 const uint16_t PixelCount = 1;

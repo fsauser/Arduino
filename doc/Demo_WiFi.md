@@ -52,7 +52,7 @@ Pour cela il faut :
 - Dans l'IDE Arduino, ouvrir le "Library Manager" (menu sur la gauche) et installer la librairue "ESPAsyncWebSrv" et ses dépendances
 - Modifier le code pour permettre une connexion WiFi (SSID & password)
 - Compiler et télécharger le code sur la carte
-- Récupérer l'adresse IP de la carte via la connexion série (RS232) 
+- Récupérer l'adresse IP de la carte via la connexion série (avec Putty par ex.) 
 - Lancer le navigateur et entrer l'adresse IP de la carte
 
 

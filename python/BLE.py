@@ -70,8 +70,8 @@ async def connect_to_device(address):
     await client.stop_notify(CHAR_UUID_ALCOHOL)
 
 if __name__ == "__main__":
-  dictDev = asyncio.run(BLEscan("ESP32"))
-  if len(dictDev) > 1:
+  dictDev = asyncio.run(BLEscan('ESP32'))
+  if len(dictDev) > 0:
     dictDev = dict(sorted(dictDev.items(), key=lambda item:item[1]))
     print(dictDev)
     asyncio.run(main(list(dictDev.values())))

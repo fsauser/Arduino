@@ -80,8 +80,8 @@ const uint16_t camColors[] = {0x480F,
 AsyncWebServer server(80);
 
 //Enter your SSID and PASSWORD
-const char* ssid = "NXPCUP";
-const char* password = "12345ABCDE";
+const char* ssid = "MYSSID";
+const char* password = "MYPASSWORD";
 
 const float p = 3.1415926;
 float MaxTemp = 0;

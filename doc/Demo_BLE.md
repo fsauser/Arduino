@@ -58,9 +58,11 @@ bool DFRobot_Alcohol_I2C::begin()
 ```
 - Renommer le nom de la carte (par ex. ESP-M3)
 - Compiler et télécharger le code sur la carte
+- Vérifier avec l'outil "nRF Connect" (Android ou iPhone) si votre carte est visible et que vous pouvez récupérer les données
 - Lancer le script python (ne pas oublier d'activer le bluetooth sur votre PC).
 
 Remarque : Avec le script Python, il est possible qu'il vous manque quelques librairies, utiliser "pip install " pour les installer.
 
+Actuellement le code envoi une notification à chaque lecture, il serait intéressant de notifier uniquement lorseque l'on a un changement de taux.
 
 </font>
