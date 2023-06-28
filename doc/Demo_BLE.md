@@ -25,7 +25,7 @@ La connexion entre la carte (voir Figure 1) et le capteur (voir Figure 2) est :
 </figure>
 
 <figure>
-  <img src="img\alcohol.jpg" alt="Capteur d'alcool" style="display: block; margin: 0 auto" width="80%" height="80%"/>
+  <img src="img\alcohol.jpg" alt="Capteur d'alcool" style="display: block; margin: 0 auto" width="40%" height="40%"/>
   <p style="text-align: center;">Figure 2: Capteur d'alcool"</p>
 </figure>
 
