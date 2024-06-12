@@ -3,7 +3,7 @@
 Démo WiFi
 ===================
 
-### 27-06-2023: v1.2
+### 12-06-2024: v1.3
 ---------------------
 
 # Connexion du capteur à la carte
@@ -41,6 +41,7 @@ Pour cela il faut :
 - Télécharger le code source zippé ([lien](https://github.com/fsauser/Arduino/blob/94559d6414b82fe3562bcfb0607d46180584b5ba/zip/MLX1.zip)) et le dézippé dans le répertoire de travail (Arduino)
 - Télécharger le script python ([lien](https://github.com/fsauser/Arduino/blob/94559d6414b82fe3562bcfb0607d46180584b5ba/python/MLX.py))
 - Dans l'IDE Arduino, ouvrir le "Library Manager" (menu sur la gauche) et installer la librairue "NeoPixelBus"
+- Sélectionner correctement la cible et activer l'option : Tools --> USB CDC On Boot --> Enabled
 - Compiler et télécharger le code sur la carte
 - Lancer le script python (il est possible qu'il vous manque quelques librairies, utiliser "pip install " pour les installer).
 
